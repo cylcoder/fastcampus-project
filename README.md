@@ -1,1 +1,1 @@
-# student-management
+# 9개 도메인 프로젝트로 끝내는 백엔드 웹 개발 (Java/Spring)
