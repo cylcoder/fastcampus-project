@@ -5,9 +5,13 @@ import java.util.List;
 import org.fastcampus.student_management.application.course.dto.CourseInfoDto;
 import org.fastcampus.student_management.application.student.StudentService;
 import org.fastcampus.student_management.domain.Course;
+import org.fastcampus.student_management.domain.CourseList;
 import org.fastcampus.student_management.domain.DayOfWeek;
 import org.fastcampus.student_management.domain.Student;
 import org.fastcampus.student_management.repo.CourseRepository;
+
+import static org.fastcampus.student_management.domain.DayOfWeek.*;
+import static org.fastcampus.student_management.domain.DayOfWeek.SUNDAY;
 
 public class CourseService {
   private final CourseRepository courseRepository;
@@ -25,11 +29,11 @@ public class CourseService {
   }
 
   public List<CourseInfoDto> getCourseDayOfWeek(DayOfWeek dayOfWeek) {
-    // TODO: 과제 구현 부분
-    return new ArrayList<>();
+    return courseRepository.getCourseDayOfWeek(dayOfWeek).stream().map(CourseInfoDto::new).toList();
   }
 
   public void changeFee(String studentName, int fee) {
-    // TODO: 과제 구현 부분
+      new CourseList(courseRepository.getCourseListByStudent(studentName)).changeAllCoursesFee(fee);
   }
+
 }

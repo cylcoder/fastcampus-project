@@ -23,10 +23,10 @@ public class StudentService {
   }
 
   public void activateStudent(String name) {
-    // TODO: 과제 구현 부분
+    getStudent(name).activate();
   }
 
   public void deactivateStudent(String name) {
-    // TODO: 과제 구현 부분
+    getStudent(name).deactivate();
   }
 }
