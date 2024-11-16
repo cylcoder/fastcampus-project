@@ -27,6 +27,10 @@ public class Post {
         state = PUBLIC;
     }
 
+    public int getLikeCount() {
+        return likeCount.getCount();
+    }
+
     public void like(User user) {
         if (this.author.equals(user)) {
             throw new IllegalArgumentException();
@@ -48,6 +52,10 @@ public class Post {
 
         this.state = state;
         content.updateContent(updateContent);
+    }
+
+    public String getContent() {
+        return content.getContent();
     }
 
 }
