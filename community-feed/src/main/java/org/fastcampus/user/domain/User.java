@@ -34,6 +34,10 @@ public class User {
         return followerCount.getCount();
     }
 
+    public UserInfo getUserInfo() {
+        return userInfo;
+    }
+
     public void follow(User targetUser) {
         if (targetUser.equals(this)) {
             throw new IllegalArgumentException();
