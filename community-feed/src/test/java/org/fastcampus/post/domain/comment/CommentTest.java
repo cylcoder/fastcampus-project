@@ -2,13 +2,13 @@ package org.fastcampus.post.domain.comment;
 
 import org.fastcampus.post.domain.Post;
 import org.fastcampus.post.domain.content.CommentContent;
-import org.fastcampus.post.domain.content.Content;
 import org.fastcampus.post.domain.content.PostContent;
 import org.fastcampus.user.domain.User;
 import org.fastcampus.user.domain.UserInfo;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CommentTest {
 
