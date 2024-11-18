@@ -19,9 +19,17 @@ public class UserEntity extends TimeBaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    // 게시글은 repository를 통한 조회
+    /*@OneToMany(mappedBy = "author")
+    private List<PostEntity> posts;*/
+
     private String name;
+
     private String profileImage;
+
     private Integer followerCount;
+
     private Integer followingCount;
 
     public UserEntity(User user) {
