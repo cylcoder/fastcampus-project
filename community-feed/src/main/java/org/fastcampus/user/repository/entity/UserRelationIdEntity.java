@@ -1,0 +1,19 @@
+package org.fastcampus.user.repository.entity;
+
+import jakarta.persistence.Embeddable;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+@Embeddable
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
+public class UserRelationIdEntity {
+
+    private Long followingUserId;
+    private Long followerUserId;
+
+}
+
+

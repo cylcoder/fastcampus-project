@@ -1,9 +1,16 @@
 package org.fastcampus.user.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.fastcampus.common.domain.PositiveIntegerCounter;
 
 import java.util.Objects;
 
+@Getter
+@Builder
+@AllArgsConstructor
 public class User {
 
     private final Long id;
@@ -18,12 +25,16 @@ public class User {
 
         this.id = id;
         this.userInfo = userInfo;
-        followingCount = new PositiveIntegerCounter();
+        followingCount  = new PositiveIntegerCounter();
         followerCount = new PositiveIntegerCounter();
     }
 
-    public Long getId() {
-        return id;
+    public String getName() {
+        return userInfo.getName();
+    }
+
+    public String getProfileImage() {
+        return userInfo.getProfileImageUrl();
     }
 
     public int getFollowingCount() {
@@ -32,10 +43,6 @@ public class User {
 
     public int getFollowerCount() {
         return followerCount.getCount();
-    }
-
-    public UserInfo getUserInfo() {
-        return userInfo;
     }
 
     public void follow(User targetUser) {
