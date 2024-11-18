@@ -26,7 +26,7 @@ public class UserEntity extends TimeBaseEntity {
 
     private String name;
 
-    private String profileImage;
+    private String profileImageUrl;
 
     private Integer followerCount;
 
@@ -35,7 +35,7 @@ public class UserEntity extends TimeBaseEntity {
     public UserEntity(User user) {
         id = user.getId();
         name = user.getName();
-        profileImage = user.getProfileImage();
+        profileImageUrl = user.getProfileImage();
         followerCount = user.getFollowerCount();
         followingCount = user.getFollowingCount();
     }
@@ -43,7 +43,7 @@ public class UserEntity extends TimeBaseEntity {
     public User toUser() {
         return User.builder()
                 .id(id)
-                .userInfo(new UserInfo(name, profileImage))
+                .userInfo(new UserInfo(name, profileImageUrl))
                 .followerCount(new PositiveIntegerCounter(followerCount))
                 .followingCount(new PositiveIntegerCounter(followingCount))
                 .build();
