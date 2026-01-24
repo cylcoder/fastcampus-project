@@ -25,6 +25,10 @@ public class Comment {
     this.likeCount = new PositiveIntegerCount();
   }
 
+  public int getLikeCount() {
+    return likeCount.getCount();
+  }
+
   public void like(User user) {
     if (author.equals(user)) {
       throw new IllegalArgumentException();

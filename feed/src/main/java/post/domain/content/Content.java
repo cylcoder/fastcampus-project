@@ -6,8 +6,8 @@ import post.domain.common.DateTimeInfo;
 @Getter
 public abstract class Content {
 
-  String text;
-  final DateTimeInfo dateTimeInfo;
+  private String text;
+  private final DateTimeInfo dateTimeInfo;
 
   Content(String text) {
     validateText(text);

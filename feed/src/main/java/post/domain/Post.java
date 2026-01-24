@@ -3,10 +3,12 @@ package post.domain;
 import static post.domain.content.PostStatus.PUBLIC;
 
 import common.domain.PositiveIntegerCount;
+import lombok.Getter;
 import post.domain.content.PostContent;
 import post.domain.content.PostStatus;
 import user.domain.User;
 
+@Getter
 public class Post {
 
   private final Long id;
@@ -24,6 +26,14 @@ public class Post {
     this.content = content;
     this.likeCount = new PositiveIntegerCount();
     this.status = PUBLIC;
+  }
+
+  public int getLikeCount() {
+    return likeCount.getCount();
+  }
+
+  public String getContent() {
+    return content.getText();
   }
 
   public void like(User user) {
