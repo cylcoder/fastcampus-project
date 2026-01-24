@@ -3,7 +3,7 @@ package user.domain;
 import common.domain.PositiveIntegerCount;
 import lombok.EqualsAndHashCode;
 
-@EqualsAndHashCode
+@EqualsAndHashCode(of = {"id", "info"})
 public class User {
 
   private final Long id;
@@ -12,10 +12,22 @@ public class User {
   private final PositiveIntegerCount followerPositiveIntegerCount;
 
   public User(Long id, Info info) {
+    if (info == null) {
+      throw new IllegalArgumentException();
+    }
+
     this.id = id;
     this.info = info;
     this.followingPositiveIntegerCount = new PositiveIntegerCount();
     this.followerPositiveIntegerCount = new PositiveIntegerCount();
+  }
+
+  public int getFollowingCount() {
+    return followingPositiveIntegerCount.getCount();
+  }
+
+  public int getFollowerCount() {
+    return followerPositiveIntegerCount.getCount();
   }
 
   public void follow(User user) {

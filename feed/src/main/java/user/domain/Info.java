@@ -1,5 +1,10 @@
 package user.domain;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+
+@Getter
+@EqualsAndHashCode
 public class Info {
 
   private final String name;
@@ -7,7 +12,7 @@ public class Info {
 
   public Info(String name, String profileImageUrl) {
     if (name == null || name.isBlank()) {
-      throw new IllegalArgumentException();
+      throw new IllegalArgumentException("Name cannot be null or blank.");
     }
     this.name = name;
     this.profileImageUrl = profileImageUrl;
