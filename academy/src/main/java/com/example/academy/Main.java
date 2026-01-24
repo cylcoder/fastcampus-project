@@ -1,8 +1,11 @@
 package com.example.academy;
 
 import com.example.academy.application.course.CourseService;
+import com.example.academy.application.course.interfaces.CourseCommandRepository;
+import com.example.academy.application.course.interfaces.CourseQueryRepository;
 import com.example.academy.application.student.StudentService;
-import com.example.academy.repo.CourseRepository;
+import com.example.academy.repo.CourseCommandRepositoryImpl;
+import com.example.academy.repo.CourseJdbcQueryRepository;
 import com.example.academy.repo.StudentRepository;
 import com.example.academy.ui.UserInputType;
 import com.example.academy.ui.course.CourseController;
@@ -14,10 +17,11 @@ public class Main {
 
   public static void main(String[] args) {
     StudentRepository studentRepository = new StudentRepository();
-    CourseRepository courseRepository = new CourseRepository();
+    CourseCommandRepositoryImpl courseRepositoryImpl = new CourseCommandRepositoryImpl();
+    CourseQueryRepository courseCommandRepository = new CourseJdbcQueryRepository();
 
     StudentService studentService = new StudentService(studentRepository);
-    CourseService courseService = new CourseService(courseRepository, studentService);
+    CourseService courseService = new CourseService(courseRepositoryImpl, courseCommandRepository, studentRepository);
 
     CoursePresenter coursePresenter = new CoursePresenter();
     StudentPresenter studentPresenter = new StudentPresenter();

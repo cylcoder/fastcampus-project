@@ -18,8 +18,7 @@ public class StudentService {
   }
 
   public Student getStudent(String name) {
-    return studentRepository.findByName(name)
-        .orElseThrow(() -> new IllegalArgumentException("해당하는 학생이 없습니다."));
+    return studentRepository.findByName(name);
   }
 
   public void activateStudent(String name) {

@@ -13,7 +13,8 @@ public class StudentRepository {
     studentMap.put(student.getName(), student);
   }
 
-  public Optional<Student> findByName(String name) {
-    return Optional.ofNullable(studentMap.get(name));
+  public Student findByName(String name) {
+    return Optional.ofNullable(studentMap.get(name))
+        .orElseThrow(IllegalArgumentException::new);
   }
 }
