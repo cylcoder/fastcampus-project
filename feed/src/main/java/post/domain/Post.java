@@ -4,6 +4,7 @@ import static post.domain.content.PostStatus.PUBLIC;
 
 import common.domain.PositiveIntegerCount;
 import lombok.Getter;
+import post.domain.content.Content;
 import post.domain.content.PostContent;
 import post.domain.content.PostStatus;
 import user.domain.User;
@@ -13,19 +14,19 @@ public class Post {
 
   private final Long id;
   private final User author;
-  private final PostContent content;
+  private final Content content;
   private final PositiveIntegerCount likeCount;
   private PostStatus status;
 
-  public Post(Long id, User author, PostContent content) {
+  public Post(Long id, User author, String text, PostStatus status) {
     if (author == null) {
       throw new IllegalArgumentException();
     }
     this.id = id;
     this.author = author;
-    this.content = content;
+    this.content = new PostContent(text);
     this.likeCount = new PositiveIntegerCount();
-    this.status = PUBLIC;
+    this.status = status;
   }
 
   public int getLikeCount() {

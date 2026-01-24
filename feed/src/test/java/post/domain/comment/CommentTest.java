@@ -2,11 +2,13 @@ package post.domain.comment;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static post.domain.content.PostStatus.PUBLIC;
 
 import org.junit.jupiter.api.Test;
 import post.domain.Post;
 import post.domain.content.CommentContent;
 import post.domain.content.PostContent;
+import post.domain.content.PostStatus;
 import user.domain.Info;
 import user.domain.User;
 
@@ -20,8 +22,8 @@ class CommentTest {
   private final Info info2 = new Info("user2", "url2");
   private final User user2 = new User(2L, info2);
 
-  private final Post post = new Post(1L, user1, new PostContent(TEXT));
-  private final Comment comment = new Comment(1L, post, user1, new CommentContent(TEXT));
+  private final Post post = new Post(1L, user1, TEXT, PUBLIC);
+  private final Comment comment = new Comment(1L, post, user1, TEXT);
 
   @Test
   void givenCommentCreated_whenAnotherUserLikes_thenLikeCountIncreased() {

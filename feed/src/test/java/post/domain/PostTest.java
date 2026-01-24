@@ -2,6 +2,7 @@ package post.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static post.domain.content.PostStatus.PUBLIC;
 
 import org.junit.jupiter.api.Test;
 import post.domain.content.PostContent;
@@ -17,7 +18,7 @@ class PostTest {
   private final Info info2 = new Info("user2", "url2");
   private final User user2 = new User(2L, info2);
 
-  private final Post post = new Post(1L, user1, new PostContent("text1"));
+  private final Post post = new Post(1L, user1, ("text1"), PUBLIC);
 
   @Test
   void givenPostCreated_whenAnotherUserLikes_thenLikeCountIncreased() {
