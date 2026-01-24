@@ -2,7 +2,9 @@ package user.domain;
 
 import common.domain.PositiveIntegerCount;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 
+@Getter
 @EqualsAndHashCode(of = {"id", "info"})
 public class User {
 
