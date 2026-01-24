@@ -1,11 +1,15 @@
 package com.example.feed.user.domain;
 
 import com.example.feed.common.domain.PositiveIntegerCount;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
+@AllArgsConstructor
 @Getter
 @EqualsAndHashCode(of = {"id", "info"})
+@Builder
 public class User {
 
   private final Long id;

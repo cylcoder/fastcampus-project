@@ -1,13 +1,11 @@
 package com.example.feed.user.application;
 
-import lombok.RequiredArgsConstructor;
 import com.example.feed.user.application.dto.CreateUserRequest;
 import com.example.feed.user.application.interfaces.UserRepository;
 import com.example.feed.user.domain.Info;
 import com.example.feed.user.domain.User;
-import org.springframework.stereotype.Service;
+import lombok.RequiredArgsConstructor;
 
-@Service
 @RequiredArgsConstructor
 public class UserService {
 

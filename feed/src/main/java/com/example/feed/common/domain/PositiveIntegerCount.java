@@ -1,11 +1,17 @@
 package com.example.feed.common.domain;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
 @Getter
 public class PositiveIntegerCount {
 
   private int count;
+
+  public PositiveIntegerCount(int count) {
+    this.count = count;
+  }
 
   public void increase() {
     count++;

@@ -36,6 +36,7 @@ class PostContentTest {
   @ValueSource(strings = {"홽", "췗", "믵"})
   void givenComplexKoreanText_whenCreate_thenTextIsEqual(String text) {
     // when
+    text = text.repeat(5);
     PostContent content = new PostContent(text);
 
     // then
