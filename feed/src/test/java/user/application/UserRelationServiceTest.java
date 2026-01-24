@@ -1,5 +1,7 @@
 package user.application;
 
+import static fake.FakeObjectFactory.getUserRelationService;
+import static fake.FakeObjectFactory.getUserService;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -7,18 +9,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import user.application.dto.CreateUserRequest;
 import user.application.dto.FollowRequest;
-import user.application.interfaces.UserRelationRepository;
-import user.application.interfaces.UserRepository;
 import user.domain.User;
-import user.repository.FakeUserRelationRepository;
-import user.repository.FakeUserRepository;
 
 class UserRelationServiceTest {
 
-  private final UserRepository userRepository = new FakeUserRepository();
-  private final UserService userService = new UserService(userRepository);
-  private final UserRelationRepository userRelationRepository = new FakeUserRelationRepository();
-  private final UserRelationService userRelationService = new UserRelationService(userService, userRelationRepository);
+  private final UserService userService = getUserService();
+  private final UserRelationService userRelationService = getUserRelationService();
 
   private User user1;
   private User user2;

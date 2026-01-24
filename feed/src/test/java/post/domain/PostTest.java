@@ -5,7 +5,6 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static post.domain.content.PostStatus.PUBLIC;
 
 import org.junit.jupiter.api.Test;
-import post.domain.content.PostContent;
 import post.domain.content.PostStatus;
 import user.domain.Info;
 import user.domain.User;
