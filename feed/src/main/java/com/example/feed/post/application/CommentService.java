@@ -10,7 +10,9 @@ import com.example.feed.post.domain.Post;
 import com.example.feed.post.domain.comment.Comment;
 import com.example.feed.user.application.UserService;
 import com.example.feed.user.domain.User;
+import org.springframework.stereotype.Service;
 
+@Service
 @RequiredArgsConstructor
 public class CommentService {
 
@@ -20,7 +22,7 @@ public class CommentService {
   private final LikeRepository likeRepository;
 
   public Comment getComment(Long id) {
-    return commentRepository.findById(id).orElseThrow();
+    return commentRepository.findById(id);
   }
 
   public Comment createComment(CreateCommentRequest request) {
@@ -30,8 +32,8 @@ public class CommentService {
     return commentRepository.save(comment);
   }
 
-  public Comment updateComment(UpdateCommentRequest request) {
-    Comment comment = getComment(request.commentId());
+  public Comment updateComment(Long commentId, UpdateCommentRequest request) {
+    Comment comment = getComment(commentId);
     User author = userService.getUser(request.userId());
     comment.update(author, request.content());
     return commentRepository.save(comment);

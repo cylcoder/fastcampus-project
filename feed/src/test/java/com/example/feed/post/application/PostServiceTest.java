@@ -20,8 +20,8 @@ class PostServiceTest extends Setup {
   void givenPost_whenUpdate_thenPostIsUpdated() {
     // when
     String newContent = "The lazy dog finally woke up and barked at the fox.";
-    UpdatePostRequest updatePostRequest = new UpdatePostRequest(post.getId(), user1.getId(), newContent, PUBLIC);
-    postService.updatePost(updatePostRequest);
+    UpdatePostRequest updatePostRequest = new UpdatePostRequest(user1.getId(), newContent, PUBLIC);
+    postService.updatePost(post.getId(), updatePostRequest);
 
     // then
     Post updatedPost = postService.getPost(post.getId());

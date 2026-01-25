@@ -1,6 +1,5 @@
 package com.example.feed.post.application;
 
-import lombok.RequiredArgsConstructor;
 import com.example.feed.post.application.dto.CreatePostRequest;
 import com.example.feed.post.application.dto.LikeRequest;
 import com.example.feed.post.application.dto.UpdatePostRequest;
@@ -9,8 +8,13 @@ import com.example.feed.post.application.interfaces.PostRepository;
 import com.example.feed.post.domain.Post;
 import com.example.feed.user.application.UserService;
 import com.example.feed.user.domain.User;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+@Service
 @RequiredArgsConstructor
+@Transactional
 public class PostService {
 
   private final UserService userService;
@@ -18,7 +22,7 @@ public class PostService {
   private final LikeRepository likeRepository;
 
   public Post getPost(Long id) {
-    return postRepository.findById(id).orElseThrow();
+    return postRepository.findById(id);
   }
 
   public Post createPost(CreatePostRequest request) {
@@ -27,8 +31,8 @@ public class PostService {
     return postRepository.save(post);
   }
 
-  public Post updatePost(UpdatePostRequest request) {
-    Post post = getPost(request.postId());
+  public Post updatePost(Long postId, UpdatePostRequest request) {
+    Post post = getPost(postId);
     User user = userService.getUser(request.userId());
     post.update(user, request.content(), request.status());
     return postRepository.save(post);
