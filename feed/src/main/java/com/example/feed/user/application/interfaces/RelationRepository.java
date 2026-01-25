@@ -2,7 +2,7 @@ package com.example.feed.user.application.interfaces;
 
 import com.example.feed.user.domain.User;
 
-public interface UserRelationRepository {
+public interface RelationRepository {
 
   boolean isFollowing(User follower, User followee);
 

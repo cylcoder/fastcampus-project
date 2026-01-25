@@ -10,12 +10,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "user_relation")
+@Table(name = "relation")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@IdClass(UserRelationIdEntity.class)
-public class UserRelationEntity extends BaseTimeEntity {
+@IdClass(RelationIdEntity.class)
+public class RelationEntity extends BaseTimeEntity {
 
   @Id
   private Long followerId;

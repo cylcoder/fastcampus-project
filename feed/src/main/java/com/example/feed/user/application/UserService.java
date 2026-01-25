@@ -1,11 +1,14 @@
 package com.example.feed.user.application;
 
 import com.example.feed.user.application.dto.CreateUserRequest;
+import com.example.feed.user.application.dto.UserResponse;
 import com.example.feed.user.application.interfaces.UserRepository;
 import com.example.feed.user.domain.Info;
 import com.example.feed.user.domain.User;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
+@Service
 @RequiredArgsConstructor
 public class UserService {
 
@@ -18,7 +21,12 @@ public class UserService {
   }
 
   public User getUser(Long id) {
-    return userRepository.findById(id).orElseThrow();
+    return userRepository.findById(id);
+  }
+
+  public UserResponse getUserProfile(Long id) {
+    User user = getUser(id);
+    return UserResponse.from(user);
   }
 
 }

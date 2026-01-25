@@ -2,10 +2,10 @@ package com.example.feed.user.repository;
 
 import java.util.HashSet;
 import java.util.Set;
-import com.example.feed.user.application.interfaces.UserRelationRepository;
+import com.example.feed.user.application.interfaces.RelationRepository;
 import com.example.feed.user.domain.User;
 
-public class FakeUserRelationRepository implements UserRelationRepository {
+public class FakeRelationRepository implements RelationRepository {
 
   private final Set<Relation> store = new HashSet<>();
 

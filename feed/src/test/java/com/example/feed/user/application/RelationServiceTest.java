@@ -1,6 +1,6 @@
 package com.example.feed.user.application;
 
-import static com.example.feed.fake.FakeObjectFactory.getUserRelationService;
+import static com.example.feed.fake.FakeObjectFactory.getRELATION_SERVICE;
 import static com.example.feed.fake.FakeObjectFactory.getUserService;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -11,10 +11,10 @@ import com.example.feed.user.application.dto.CreateUserRequest;
 import com.example.feed.user.application.dto.FollowRequest;
 import com.example.feed.user.domain.User;
 
-class UserRelationServiceTest {
+class RelationServiceTest {
 
   private final UserService userService = getUserService();
-  private final UserRelationService userRelationService = getUserRelationService();
+  private final RelationService relationService = getRELATION_SERVICE();
 
   private User user1;
   private User user2;
@@ -31,7 +31,7 @@ class UserRelationServiceTest {
   @Test
   void givenTwoUsers_whenOneUserFollowsAnother_thenCountIsChanged() {
     // when
-    userRelationService.follow(followRequest);
+    relationService.follow(followRequest);
 
     // then
     assertThat(user1.getFollowingCount()).isEqualTo(1);
@@ -41,17 +41,17 @@ class UserRelationServiceTest {
   @Test
   void givenOneUserIsFollowingAnother_whenOneTryToFollowAgain_thenThrowException() {
     // given
-    userRelationService.follow(followRequest);
+    relationService.follow(followRequest);
 
     // when & then
-    assertThatThrownBy(() -> userRelationService.follow(followRequest))
+    assertThatThrownBy(() -> relationService.follow(followRequest))
         .isInstanceOf(IllegalArgumentException.class);
   }
 
   @Test
   void givenUser_whenFollowOneself_thenThrowException() {
     FollowRequest request = new FollowRequest(user1.getId(), user1.getId());
-    assertThatThrownBy(() -> userRelationService.follow(request))
+    assertThatThrownBy(() -> relationService.follow(request))
         .isInstanceOf(IllegalArgumentException.class);
   }
 

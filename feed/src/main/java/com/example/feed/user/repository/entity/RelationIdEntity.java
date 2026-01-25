@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-public class UserRelationIdEntity {
+public class RelationIdEntity {
 
   private Long followerId;
 
