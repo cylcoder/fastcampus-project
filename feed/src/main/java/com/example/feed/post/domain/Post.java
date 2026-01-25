@@ -1,13 +1,17 @@
 package com.example.feed.post.domain;
 
 import com.example.feed.common.domain.PositiveIntegerCount;
-import lombok.Getter;
 import com.example.feed.post.domain.content.Content;
 import com.example.feed.post.domain.content.PostContent;
 import com.example.feed.post.domain.content.PostStatus;
 import com.example.feed.user.domain.User;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
 
+@AllArgsConstructor
 @Getter
+@Builder
 public class Post {
 
   private final Long id;

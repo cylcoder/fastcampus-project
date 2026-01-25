@@ -1,4 +1,4 @@
-package com.example.feed.user.repository.entity;
+package com.example.feed.post.repository.entity.like;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-public class UserRelationIdEntity {
+public class LikeIdEntity {
 
-  private Long followerId;
-
-  private Long followeeId;
+  private Long targetId;
+  private Long userId;
+  private String targetType;
 
 }
